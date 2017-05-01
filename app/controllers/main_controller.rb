@@ -21,15 +21,23 @@ class MainController < ApplicationController
         MainController.save_results(search, @results["result"][n]["category"], 
           @results["result"][n]["url"], @results["result"][n]["value"] )
       end
+      if params[:email].present?
+        message = SearchResultsMessage.new(email: params[:email], search: search)
+        SearchResultsMailer.send_results(message).deliver_now
+      end
     else
       if params[:category].present?
         uri = URI.parse("#{source}/jokes/random?") 
         uri.query = URI.encode_www_form( category: params[:category] )
         @results = JSON.parse(uri.open.read)
         search = Search.new() 
-        search.value = params[:text]
+        search.value = "Random search"
         search.save
         MainController.save_results(search, @results["category"], @results["url"], @results["value"])
+        if params[:email].present?
+          message = SearchResultsMessage.new(email: params[:email], search: search)
+          SearchResultsMailer.send_results(message).deliver_now
+        end
       else
         uri = URI.parse("#{source}/jokes/random")         
         @results = JSON.parse(uri.open.read)
@@ -37,6 +45,10 @@ class MainController < ApplicationController
         search.value = "Random search"
         search.save      
         MainController.save_results(search, @results["category"], @results["url"], @results["value"])
+        if params[:email].present?
+          message = SearchResultsMessage.new(email: params[:email], search: search)
+          SearchResultsMailer.send_results(message).deliver_now
+        end
       end  
     end
     respond_to do |format|

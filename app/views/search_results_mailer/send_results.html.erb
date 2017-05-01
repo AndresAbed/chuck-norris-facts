@@ -1,0 +1,7 @@
+<p>Email: <%= @message.email %></p>
+<p>Search: <%= @message.search.value %></p>
+<% @message.search.results.each do |result| %>
+  <%= result.category %>
+  <%= result.url %>
+  <%= result.value %>
+<% end %>

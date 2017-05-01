@@ -13,13 +13,14 @@ class MainController < ApplicationController
     uri = URI.parse("#{source}/jokes/search?")
     if params[:text].present?        
       uri.query = URI.encode_www_form( query: params[:text] )
-      @results = JSON.parse(uri.open.read)
+      results = JSON.parse(uri.open.read)
+      @results = Kaminari.paginate_array(results["result"]).page(params[:page]).per(5)
       search = Search.new() 
       search.value = params[:text]
       search.save
-      @results["total"].times do |n|
-        MainController.save_results(search, @results["result"][n]["category"], 
-          @results["result"][n]["url"], @results["result"][n]["value"] )
+      results["total"].times do |n|
+        MainController.save_results(search, results["result"][n]["category"], 
+          results["result"][n]["url"], results["result"][n]["value"] )
       end
       if params[:email].present?
         message = SearchResultsMessage.new(email: params[:email], search: search)

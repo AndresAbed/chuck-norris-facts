@@ -1,7 +1,8 @@
-<% if results["total"].present? %>
-  <%= results["total"].times do |n| %>
-    <%= results["result"][n] %>
+<% if not results.class == Hash %>
+  <% results.each do |result| %>
+    <%= result %>
   <% end %>
+  <%= paginate results, remote: true %>
 <% else %>
   <%= results %>
 <% end %>

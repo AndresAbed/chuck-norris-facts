@@ -1,0 +1,7 @@
+<% if results["total"].present? %>
+  <%= results["total"].times do |n| %>
+    <%= results["result"][n] %>
+  <% end %>
+<% else %>
+  <%= results %>
+<% end %>

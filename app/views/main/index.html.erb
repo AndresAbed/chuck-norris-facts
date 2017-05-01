@@ -1,0 +1,12 @@
+<%= form_tag search_path, method: :get, remote: true do %>
+  <%= text_field_tag :text %>
+  <% @categories.each do |category| %>
+      <%= category %>          
+      <%= check_box_tag :category, category %>
+    <% end %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="results">
+  
+</div>

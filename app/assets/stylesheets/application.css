@@ -18,3 +18,7 @@
 *{
   font: 16px/1.5 "Courier New", Arial, sans-serif;
 }
+
+a img{
+  width: 30px;
+}

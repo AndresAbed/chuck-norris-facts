@@ -14,6 +14,11 @@ class MainController < ApplicationController
     end
   end
 
+  def language
+    cookies["language"] = params[:language]
+    redirect_to :back
+  end
+
   def search
     uri = URI.parse("#{source}/jokes/search?")
     if params[:text].present?        

@@ -2,6 +2,11 @@
   <img src="<%= image_path("chucknorris_logo.png") %>">
 </div>
 <div id="welcome_message">
-  <p>Welcome to the Chuck Norris Facts app. Enjoy finding interested facts about this epic movie actor.</p>
-  <%= link_to "Start", facts_path %>
+  <% if cookies[:language] == "eng" %>
+    <p>Welcome to the Chuck Norris Facts. Enjoy finding interested facts about this epic actor.</p>
+    <%= link_to "Start", facts_path %>
+  <% else %>
+    <p>Bienvenido a Chuck Norris Facts. Disfruta encontrando interesantes hechos sobre esto épico actor.</p>
+    <%= link_to "Comenzar", facts_path %>
+  <% end %>
 </div>

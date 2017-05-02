@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <% if check_language == "eng" %>      
+        <%= link_to language_path(language: "esp")do %>
+          <img src="<%= image_path("spain.png") %>">
+        <% end %>      
+    <% else %>
+        <%= link_to language_path(language: "eng") do %>
+          <img src="<%= image_path("united-states.png") %>">
+        <% end %>      
+    <% end %>
     <%= yield %>
   </body>
 </html>

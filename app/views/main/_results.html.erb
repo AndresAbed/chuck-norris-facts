@@ -1,8 +1,22 @@
 <% if not results.class == Hash %>
   <% results.each do |result| %>
-    <%= result %>
+    <div class="fact-container">
+      <img src="<%= image_path("chuck-norris.png") %>">
+      <% if result.values.first.present? %>
+        <p><b>Category:</b> <i><%= result.values.first.first %></i></p>
+      <% end %>
+      <p class="fact"><i>"<%= result.values.fifth %>"</i></p>
+      <a href="<%= result.values.fourth %>" target="_blank"><%= result.values.fourth %></a>
+    </div>
   <% end %>
   <%= paginate results, remote: true %>
 <% else %>
-  <%= results %>
+  <div class="fact-container">
+    <img src="<%= image_path("chuck-norris.png") %>">
+    <% if results.values.first.present? %>
+      <p><b>Category:</b> <i><%= results.values.first.first %></i></p>
+    <% end %>
+    <p class="fact"><i>"<%= results.values.fifth %>"</i></p>
+    <a href="<%= results.values.fourth %>" target="_blank"><%= results.values.fourth %></a>
+  </div>
 <% end %>

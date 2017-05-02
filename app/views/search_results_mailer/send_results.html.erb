@@ -1,7 +1,12 @@
-<p>Email: <%= @message.email %></p>
-<p>Search: <%= @message.search.value %></p>
+<p>Search: <i>"<%= @message.search.value %>"</i></p>
+<p>Results:</p>
 <% @message.search.results.each do |result| %>
-  <%= result.category %>
-  <%= result.url %>
-  <%= result.value %>
+  <div class="fact-container">
+    <img src="https://assets.chucknorris.host/img/avatar/chuck-norris.png">
+    <% if result.category.present? %>
+      <p><b>Category:</b> <i><%= result.category.first %></i></p>
+    <% end %>
+    <p class="fact"><i>"<%= result.value %>"</i></p>
+    <a href="<%= result.url %>" target="_blank"><%= result.url %></a>
+  </div>
 <% end %>

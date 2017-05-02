@@ -1,0 +1,56 @@
+#search_fields{
+  width: 20%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+form{
+  border: 1px solid #ccc;
+  padding: 25px 0;
+}
+
+#search_fields input{
+  margin: 10px 0;
+  width: 209px;
+}
+
+#search_fields button{
+  border: none;
+  background-color: #f15a24;
+  color: #fff;
+  width: 209px;
+}
+
+#search_fields button i{
+  margin-top: 5px;
+}
+
+#categories{
+  width: 75%;
+  display: inline-block;
+  text-align: center;
+}
+
+#categories p{
+  font-weight: bold;
+}
+
+#results{
+  text-align: center;
+  padding: 0 40px;
+  margin: 40px 0 10px;
+}
+
+#results b{
+  font-weight: bold;
+}
+
+#results i{
+  font-style: italic;
+}
+
+#results .fact-container{
+  margin: 30px 0;
+}
+}

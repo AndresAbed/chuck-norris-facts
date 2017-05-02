@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/facts', to: 'main#index'
+  root 'main#index'
+  get '/facts', to: 'main#facts'
   get 'main/search', as: :search
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

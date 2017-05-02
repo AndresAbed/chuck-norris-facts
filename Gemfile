@@ -8,6 +8,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'kaminari'
+gem 'font-awesome-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
 end

@@ -2,7 +2,12 @@ class MainController < ApplicationController
   require 'open-uri'
   require 'uri'
   require 'json'
-  def index        
+
+  def index
+    
+  end
+
+  def facts        
     @categories = JSON.parse(open("#{source}/jokes/categories").read)
     respond_to do |format|
       format.html

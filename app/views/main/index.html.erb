@@ -1,13 +1,7 @@
-<%= form_tag search_path, method: :get, remote: true do %>
-  <%= text_field_tag :email, nil, placeholder: 'Email' %>
-  <%= text_field_tag :text, nil, placeholder: "Type something" %>
-  <% @categories.each do |category| %>
-      <%= category %>          
-      <%= check_box_tag :category, category %>
-    <% end %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<div id="results">
-  
+<div id="logo">
+  <img src="<%= image_path("chucknorris_logo.png") %>">
+</div>
+<div id="welcome_message">
+  <p>Welcome to the Chuck Norris Facts app. Enjoy finding interested facts about this epic movie actor.</p>
+  <%= link_to "Start", facts_path %>
 </div>

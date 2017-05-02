@@ -1,0 +1,22 @@
+#logo{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#logo img{
+  width: 400px;
+}
+
+#welcome_message{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#welcome_message a{
+  background-color: #f15a24;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
